@@ -20,6 +20,7 @@ export const Header = () => {
 };
 
 const StyledHeader = styled.header`
+	z-index: 999;
 	height: 80px;
 	position: fixed;
 	top: 0;

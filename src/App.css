@@ -1,15 +1,13 @@
 .App {
-  height:100vh;
-  display: grid;
-  grid-template-rows: 80px 1fr;
-  gap: 12px;
-  background-color: #EEF1F1;
+    height: 100vh;
+    background-color: #EEF1F1;
 }
 
 .contentContainer {
-margin-top: 80px !important;
-  display: grid;
-  grid-template-columns: minmax(200px, 1fr) 4fr;
-  grid-template-rows: 1fr;
-  gap:12px 24px;
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: auto 5fr;
+    gap: 12px 24px;
+
+
 }

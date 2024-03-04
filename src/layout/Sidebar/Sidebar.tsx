@@ -1,37 +1,53 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 import regt from '../../assets/images/Rectangle.svg';
 import { UserInfo } from './UserInfo/UserInfo';
 import ava from '../../assets/images/ava.jpg';
+import { Navigation } from './Navigation/Navigation';
+import { ButtonSwitchMenu } from './ButtonSwitchMenu/ButtonSwitchMenu';
 
 export const Sidebar = () => {
+	const [fullMenu, setFullMenu] = useState(true);
+
 	return (
-		<Aside>
+		<Aside isFull={fullMenu}>
 			<UserInfo avatar={ava} userinfo={'Alexandr Kovalyov'} />
+			<ButtonSwitchMenu
+				isFull={!fullMenu}
+				clickFunc={() => setFullMenu(!fullMenu)}
+			/>
+			<Navigation />
 		</Aside>
 	);
 };
 
-const Aside = styled.aside`
-	z-index: 0;
+const Aside = styled.aside<{ isFull: boolean }>`
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
-	width: 100%;
-	height: 100vh;
+	width: 240px;
+	height: calc(100vh - 92px);
 	grid-area: 2/1/3/2;
-	justify-self: end;
 	background-color: #00bd97;
 	border-radius: 10px;
+	background-image: url(${regt});
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top;
+	transition: 0.5s;
 
-	&:after {
-		content: '';
-		background-image: url(${regt});
-		background-size: contain;
-		background-repeat: no-repeat;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 90px;
-	}
+	${props =>
+		!props.isFull &&
+		css<{ isFull: boolean }>`
+			width: 100px;
+
+			div span {
+				display: none;
+			}
+
+			nav li span {
+				display: none;
+			}
+		`};
 `;

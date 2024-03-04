@@ -7,8 +7,8 @@ import { Container } from './components/Container';
 function App() {
 	return (
 		<div className='App'>
-			<Header />
 			<Container width={'1200px'} className={'contentContainer'}>
+				<Header />
 				<Main />
 				<Sidebar />
 			</Container>
