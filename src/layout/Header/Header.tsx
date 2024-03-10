@@ -11,7 +11,6 @@ export const Header = () => {
 			<Container width={'1200px'}>
 				<FlexContainer align={'center'} justify={'space-between'}>
 					<Logo />
-
 					<Notifications notifications={10} />
 				</FlexContainer>
 			</Container>

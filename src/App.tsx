@@ -1,6 +1,6 @@
 import './App.css';
 import { Header } from './layout/Header/Header';
-import { Main } from './layout/Main/Main';
+import { Profile } from './layout/Profile/Profile';
 import { Sidebar } from './layout/Sidebar/Sidebar';
 import { Container } from './components/Container';
 
@@ -9,7 +9,7 @@ function App() {
 		<div className='App'>
 			<Container width={'1200px'} className={'contentContainer'}>
 				<Header />
-				<Main />
+				<Profile />
 				<Sidebar />
 			</Container>
 		</div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import regt from '../../assets/images/Rectangle.svg';
 import { UserInfo } from './UserInfo/UserInfo';
-import ava from '../../assets/images/ava.jpg';
+import ava from '../../assets/images/catsAva.png';
 import { Navigation } from './Navigation/Navigation';
 import { ButtonSwitchMenu } from './ButtonSwitchMenu/ButtonSwitchMenu';
 
@@ -13,7 +13,7 @@ export const Sidebar = () => {
 		<Aside isFull={fullMenu}>
 			<UserInfo avatar={ava} userinfo={'Alexandr Kovalyov'} />
 			<ButtonSwitchMenu
-				isFull={!fullMenu}
+				isFull={fullMenu}
 				clickFunc={() => setFullMenu(!fullMenu)}
 			/>
 			<Navigation />
