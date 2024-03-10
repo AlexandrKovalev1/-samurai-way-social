@@ -9,8 +9,9 @@ export const Container = styled.div<Props>`
 	width: 100%;
 	margin: 0 auto;
 	height: 100%;
+	padding: 0 25px;
 
-	@media screen and (max-width: ${props => props.width}) {
-		padding: 0 15px;
-	}
+	// @media screen and (max-width: ${props => props.width}) {
+	// 	padding: 0 15px;
+	// }
 `;

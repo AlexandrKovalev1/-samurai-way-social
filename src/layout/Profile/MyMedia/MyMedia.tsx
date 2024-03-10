@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const MyMedia = () => {
-	return <MediaWrap></MediaWrap>;
+	return <MediaWrap>sdvsdvsdvdsv</MediaWrap>;
 };
 
 const MediaWrap = styled.div`

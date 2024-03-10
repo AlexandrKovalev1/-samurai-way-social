@@ -23,8 +23,10 @@ export const AddPost = () => {
 	};
 
 	const onSendHandler = () => {
-		setText('');
-		setCollapsed(false);
+		if (text) {
+			setText('');
+			setCollapsed(false);
+		}
 	};
 	return (
 		<StyleSheetManager shouldForwardProp={prop => isPropValid(prop)}>
@@ -70,7 +72,7 @@ const TextAreaGroup = styled.div<{ isCollapsed: boolean }>`
 `;
 
 const Textarea = styled.textarea<{ isEdit?: boolean }>`
-	padding: 15px 0 0 15px;
+	padding: 15px 0 0 25px;
 	width: 100%;
 	height: 100%;
 	font-size: 1.2rem;
@@ -78,9 +80,11 @@ const Textarea = styled.textarea<{ isEdit?: boolean }>`
 	outline: none;
 	resize: none;
 	overflow: hidden;
+
 	&::placeholder {
 		font-size: 1rem;
 	}
+
 	${props =>
 		props.isEdit &&
 		css<{ isEdit?: boolean }>`
@@ -89,7 +93,7 @@ const Textarea = styled.textarea<{ isEdit?: boolean }>`
 `;
 
 const EditButtonsWrap = styled.div`
-	padding-left: 15px;
+	padding-left: 25px;
 	display: flex;
 	align-items: center;
 	gap: 14px;

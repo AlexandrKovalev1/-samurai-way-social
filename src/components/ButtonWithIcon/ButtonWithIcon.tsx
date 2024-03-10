@@ -8,7 +8,7 @@ type Props = {
 	type: ButtonType;
 };
 
-type ButtonType = 'withBorder' | 'post';
+type ButtonType = 'withBorder' | 'post' | 'delPost' | 'postOptions';
 
 export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 	let width, height, view;
@@ -27,6 +27,16 @@ export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 			height = '24px';
 			view = '0 0 24 24';
 			break;
+		case 'delPost':
+			width = '28px';
+			height = '28px';
+			view = '0 0 28 28';
+			break;
+		case 'postOptions':
+			width = '20px';
+			height = '20px';
+			view = '0 0 20 20';
+			break;
 	}
 
 	return (
@@ -39,6 +49,8 @@ export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 const Button = styled.button<{ type: ButtonType }>`
 	text-align: center;
 	outline: none;
+	border: none;
+	background-color: transparent;
 
 	${props =>
 		props.type === 'withBorder' &&
@@ -48,12 +60,5 @@ const Button = styled.button<{ type: ButtonType }>`
 			background-color: #ffffff;
 			border: 1px solid #00bd97;
 			border-radius: 50%;
-		`}
-
-	${props =>
-		props.type === 'post' &&
-		css<{ type: ButtonType }>`
-			border: none;
-			background-color: transparent;
 		`}
 `;

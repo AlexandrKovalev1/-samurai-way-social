@@ -34,6 +34,6 @@ const StyledMain = styled.main`
 	grid-area: 2/2/3/3;
 	display: grid;
 	grid-template-rows: minmax(510px, auto) minmax(50px, auto) minmax(0px, 1fr);
-	grid-auto-columns: minmax(150px, auto) minmax(auto, 377px);
+	grid-auto-columns: minmax(305px, auto) minmax(auto, 377px);
 	gap: 9px 13px;
 `;
