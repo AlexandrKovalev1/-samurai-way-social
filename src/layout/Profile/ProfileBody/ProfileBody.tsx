@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Container } from '../../../components/Container';
+import { SettingButton } from './SettingButton/SettingButton';
 
 type Props = {
 	backgroundProfile?: string;
@@ -16,19 +17,19 @@ export const ProfileBody = ({ backgroundProfile, avatar }: Props) => {
 						<Avatar src={avatar} alt={'avatarUser'} />
 					</AvatarWrap>
 					<SettingBlock>
-						<button>edit</button>
-						<button>shere</button>
+						<SettingButton iconId={'edit'} />
+						<SettingButton iconId={'share'} />
 					</SettingBlock>
 
 					<div>
 						<span>Online</span>
 						<UserNameBlock>
-							<h2>Manish Prajapati</h2> <span>@manish007</span>
+							<Heading>Manish Prajapati</Heading> <span>@manish007</span>
 						</UserNameBlock>
 						<span>developer</span>
 					</div>
 					<div>
-						<h2>About Me</h2>
+						<Heading>About Me</Heading>
 						<p>
 							Lorem Ipsum is simply dummy text of the printing and typesetting
 							industry. Lorem Ipsum has been the industry's standard dummy text
@@ -52,6 +53,7 @@ const Wrapper = styled.div`
 `;
 
 const BackGroundProfile = styled.div<{ bgImg?: string }>`
+	min-height: 100px;
 	max-height: 190px;
 	height: 100%;
 	${props =>
@@ -92,10 +94,17 @@ const SettingBlock = styled.div`
 	width: 100%;
 	min-height: 82px;
 	text-align: end;
+	button + button {
+		margin-left: 16px;
+	}
 `;
 
 const UserNameBlock = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 20px;
+`;
+
+const Heading = styled.h2`
+	padding: 6px 0 10px;
 `;
