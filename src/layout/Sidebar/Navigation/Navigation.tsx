@@ -23,8 +23,13 @@ export const Navigation = () => {
 	return (
 		<Nav>
 			<List>
-				{navlist.map(i => (
-					<NavItem href={i.href} iconId={i.iconId} title={i.title} />
+				{navlist.map((i, index) => (
+					<NavItem
+						href={i.href}
+						iconId={i.iconId}
+						title={i.title}
+						key={index}
+					/>
 				))}
 			</List>
 		</Nav>

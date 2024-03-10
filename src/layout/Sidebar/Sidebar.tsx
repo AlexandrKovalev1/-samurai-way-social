@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 import regt from '../../assets/images/Rectangle.svg';
 import { UserInfo } from './UserInfo/UserInfo';
 import ava from '../../assets/images/catsAva.png';
@@ -10,14 +11,16 @@ export const Sidebar = () => {
 	const [fullMenu, setFullMenu] = useState(true);
 
 	return (
-		<Aside isFull={fullMenu}>
-			<UserInfo avatar={ava} userinfo={'Alexandr Kovalyov'} />
-			<ButtonSwitchMenu
-				isFull={fullMenu}
-				clickFunc={() => setFullMenu(!fullMenu)}
-			/>
-			<Navigation />
-		</Aside>
+		<StyleSheetManager shouldForwardProp={prop => isPropValid(prop)}>
+			<Aside isFull={fullMenu}>
+				<UserInfo avatar={ava} userinfo={'Alexandr Kovalyov'} />
+				<ButtonSwitchMenu
+					isFull={fullMenu}
+					clickFunc={() => setFullMenu(!fullMenu)}
+				/>
+				<Navigation />
+			</Aside>
+		</StyleSheetManager>
 	);
 };
 

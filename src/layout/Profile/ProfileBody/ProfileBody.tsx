@@ -1,64 +1,68 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, StyleSheetManager } from 'styled-components';
 import { Container } from '../../../components/Container';
-import { SettingButton } from './SettingButton/SettingButton';
+import isPropValid from '@emotion/is-prop-valid';
+import { ButtonWithIcon } from '../../../components/ButtonWithIcon/ButtonWithIcon';
 
 type Props = {
-	backgroundProfile?: string;
+	backgroundProfile: string;
 	avatar?: string;
 };
 export const ProfileBody = ({ backgroundProfile, avatar }: Props) => {
 	return (
-		<Wrapper>
-			<BackGroundProfile bgImg={backgroundProfile} />
-			<Container width={'865px'}>
-				<UserInfo>
-					<AvatarWrap>
-						<Avatar src={avatar} alt={'avatarUser'} />
-					</AvatarWrap>
-					<SettingBlock>
-						<SettingButton iconId={'edit'} />
-						<SettingButton iconId={'share'} />
-					</SettingBlock>
+		<StyleSheetManager shouldForwardProp={prop => isPropValid(prop)}>
+			<Wrapper>
+				<BackGroundProfile bgImg={backgroundProfile} />
+				<Container width={'865px'}>
+					<UserInfo>
+						<AvatarWrap>
+							<Avatar src={avatar} alt={'avatarUser'} />
+						</AvatarWrap>
+						<SettingBlock>
+							<ButtonWithIcon iconId={'edit'} type={'withBorder'} />
+							<ButtonWithIcon iconId={'share'} type={'withBorder'} />
+						</SettingBlock>
 
-					<div>
-						<span>Online</span>
-						<UserNameBlock>
-							<Heading>Manish Prajapati</Heading> <span>@manish007</span>
-						</UserNameBlock>
-						<span>developer</span>
-					</div>
-					<div>
-						<Heading>About Me</Heading>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry's standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged.
-						</p>
-					</div>
-				</UserInfo>
-			</Container>
-		</Wrapper>
+						<div>
+							<span>Online</span>
+							<UserNameBlock>
+								<Heading>Manish Prajapati</Heading> <span>@manish007</span>
+							</UserNameBlock>
+							<span>developer</span>
+						</div>
+						<div>
+							<Heading>About Me</Heading>
+							<p>
+								Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry. Lorem Ipsum has been the industry's standard dummy
+								text ever since the 1500s, when an unknown printer took a galley
+								of type and scrambled it to make a type specimen book. It has
+								survived not only five centuries, but also the leap into
+								electronic typesetting, remaining essentially unchanged.
+							</p>
+						</div>
+					</UserInfo>
+				</Container>
+			</Wrapper>
+		</StyleSheetManager>
 	);
 };
 
 const Wrapper = styled.div`
 	grid-area: 1/1/2/3;
+	padding-bottom: 15px;
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
 `;
 
-const BackGroundProfile = styled.div<{ bgImg?: string }>`
+const BackGroundProfile = styled.div<{ bgImg: string }>`
 	min-height: 100px;
 	max-height: 190px;
 	height: 100%;
 	${props =>
 		props.bgImg &&
-		css<{ bgImg?: string }>`
+		css<{ bgImg: string }>`
 			background-image: url(${props.bgImg});
 			background-position: center;
 			background-size: cover;
@@ -94,6 +98,7 @@ const SettingBlock = styled.div`
 	width: 100%;
 	min-height: 82px;
 	text-align: end;
+
 	button + button {
 		margin-left: 16px;
 	}

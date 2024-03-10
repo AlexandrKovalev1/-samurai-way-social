@@ -1,17 +1,20 @@
 import React from 'react';
 import { Icon } from '../../../components/icon/Icon';
-import styled from 'styled-components';
+import styled, { StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 type Props = {
 	notifications: number;
 };
-export const Notifications = ({ notifications }: Props) => {
+export const Notifications = ({ notifications, ...props }: Props) => {
 	let countNotifications = notifications > 99 ? `'99+'` : `'${notifications}'`;
 
 	return (
-		<NotificationsBtn count={countNotifications}>
-			<Icon iconId={'notifications'} viewBox={'0 0 20 21'} />
-		</NotificationsBtn>
+		<StyleSheetManager shouldForwardProp={prop => isPropValid(prop)}>
+			<NotificationsBtn count={countNotifications}>
+				<Icon iconId={'notifications'} viewBox={'0 0 20 21'} />
+			</NotificationsBtn>
+		</StyleSheetManager>
 	);
 };
 

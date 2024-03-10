@@ -6,7 +6,7 @@
 .contentContainer {
     display: grid;
     grid-template-rows: 80px 1fr;
-    grid-template-columns: auto 5fr;
+    grid-template-columns: auto 4fr;
     gap: 12px 24px;
 
 

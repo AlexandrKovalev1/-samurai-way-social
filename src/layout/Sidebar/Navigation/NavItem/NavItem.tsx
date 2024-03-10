@@ -7,7 +7,7 @@ type Props = {
 	iconId: string;
 	title: string;
 };
-export const NavItem = ({ href, iconId, title }: Props) => {
+export const NavItem = ({ href, iconId, title, ...props }: Props) => {
 	return (
 		<li>
 			<Link href={href} iconId={iconId}>
