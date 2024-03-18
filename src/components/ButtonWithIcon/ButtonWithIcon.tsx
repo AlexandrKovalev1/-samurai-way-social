@@ -8,7 +8,12 @@ type Props = {
 	type: ButtonType;
 };
 
-type ButtonType = 'withBorder' | 'post' | 'delPost' | 'postOptions';
+type ButtonType =
+	| 'withBorder'
+	| 'post'
+	| 'delPost'
+	| 'postOptions'
+	| 'headerMes';
 
 export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 	let width, height, view;
@@ -23,6 +28,7 @@ export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 			view = '0 0 22 22';
 			break;
 		case 'post':
+		case 'headerMes':
 			width = '24px';
 			height = '24px';
 			view = '0 0 24 24';
@@ -47,7 +53,9 @@ export const ButtonWithIcon = ({ iconId, onClickFoo, type }: Props) => {
 };
 
 const Button = styled.button<{ type: ButtonType }>`
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	outline: none;
 	border: none;
 	background-color: transparent;
@@ -59,6 +67,17 @@ const Button = styled.button<{ type: ButtonType }>`
 			height: 42px;
 			background-color: #ffffff;
 			border: 1px solid #00bd97;
+			border-radius: 50%;
+		`}
+
+	${props =>
+		props.type === 'headerMes' &&
+		css<{ type: ButtonType }>`
+			width: 52px;
+			height: 52px;
+
+			background-color: #ffffff;
+			border: 1px solid #e3e8e7;
 			border-radius: 50%;
 		`}
 `;

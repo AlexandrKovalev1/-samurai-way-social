@@ -4,21 +4,21 @@ import styled from 'styled-components';
 
 export const Navigation = () => {
 	const navlist = [
-		{ href: '#', iconId: 'home', title: 'Home' },
-		{ href: '#', iconId: 'notification', title: 'Notifications' },
+		{ href: '/home', iconId: 'home', title: 'Home' },
+		{ href: '/notification', iconId: 'notification', title: 'Notifications' },
 		{
-			href: '#',
+			href: '/messages',
 			iconId: 'messages',
 			title: 'Messages',
 		},
-		{ href: '#', iconId: 'collection', title: 'Collection' },
-		{ href: '#', iconId: 'subscription', title: 'Subscription' },
+		{ href: '/collection', iconId: 'collection', title: 'Collection' },
+		{ href: '/subscription', iconId: 'subscription', title: 'Subscription' },
 		{
-			href: '#',
+			href: '/profile',
 			iconId: 'profile',
 			title: 'Profile',
 		},
-		{ href: '#', iconId: 'more', title: 'More' },
+		{ href: '/more', iconId: 'more', title: 'More' },
 	];
 	return (
 		<Nav>
@@ -43,6 +43,6 @@ const List = styled.ul`
 	transition: 2s;
 
 	& li + li {
-		margin-top: 33px;
+		margin-top: 16px;
 	}
 `;

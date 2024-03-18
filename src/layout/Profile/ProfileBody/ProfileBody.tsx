@@ -94,6 +94,8 @@ const Avatar = styled.img`
 `;
 
 const SettingBlock = styled.div`
+	display: flex;
+	justify-content: flex-end;
 	padding: 26px 0 13px;
 	width: 100%;
 	min-height: 82px;

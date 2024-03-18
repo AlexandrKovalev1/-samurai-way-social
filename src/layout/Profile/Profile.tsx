@@ -18,7 +18,7 @@ export const Profile = () => {
 	};
 
 	return (
-		<StyledMain>
+		<Wrapper>
 			<ProfileBody
 				backgroundProfile={profileState.profileBody.background}
 				avatar={profileState.profileBody.userInfo.avatar}
@@ -26,12 +26,11 @@ export const Profile = () => {
 			<AddPost />
 			<Posts />
 			<MyMedia />
-		</StyledMain>
+		</Wrapper>
 	);
 };
 
-const StyledMain = styled.main`
-	grid-area: 2/2/3/3;
+const Wrapper = styled.div`
 	display: grid;
 	grid-template-rows: minmax(510px, auto) minmax(50px, auto) minmax(0px, 1fr);
 	grid-auto-columns: minmax(305px, auto) minmax(auto, 377px);

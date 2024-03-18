@@ -3,6 +3,10 @@
 
 }
 
+.main {
+    grid-area: 2/2/3/3;
+}
+
 .contentContainer {
     display: grid;
     grid-template-rows: 80px 1fr;
